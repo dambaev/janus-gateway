@@ -1,4 +1,4 @@
-{ stdenv, fetchgit, pkgs }:
+{ stdenv, fetchFromGitHub, jansson, libconfig, libnice, openssl, glib, pkg-config, gengetopt, libsrtp, sofia_sip, libopus }:
 
 let
   tag = "v0.7.3"; # git tag
@@ -6,12 +6,12 @@ in
 stdenv.mkDerivation rec {
   name = "janus-gateway-${tag}";
   version = tag;
-  src = pkgs.fetchgit {
+  src = fetchFromGitHub {
     url = "https://github.com/meetecho/janus-gateway";
-    branchName = tag;
+    rev = tag;
   };
 
-  buildInputs = with pkgs; [ jansson libconfig libnice openssl glib pkg-config gengetopt libsrtp sofia_sip libopus ];
+  buildInputs = [ jansson libconfig libnice openssl glib pkg-config gengetopt libsrtp sofia_sip libopus ];
   meta = with stdenv.lib; {
     description = "Janus WebRTC Server";
     homepage    = "https://janus.conf.meetecho.com/";
