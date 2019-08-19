@@ -1,4 +1,4 @@
-{ stdenv, fetchgit }:
+{ stdenv, fetchgit, pkgs }:
 
 let
   tag = "v0.7.3"; # git tag
@@ -11,7 +11,7 @@ stdenv.mkDerivation rec {
     branchName = tag;
   };
 
-  buildInputs = with nixpkgs; [ jansson libconfig libnice openssl glib pkg-config gengetopt libsrtp sofia_sip libopus ];
+  buildInputs = with pkgs; [ jansson libconfig libnice openssl glib pkg-config gengetopt libsrtp sofia_sip libopus ];
   meta = with stdenv.lib; {
     description = "Janus WebRTC Server";
     homepage    = "https://janus.conf.meetecho.com/";
