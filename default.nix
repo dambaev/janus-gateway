@@ -11,7 +11,7 @@ stdenv.mkDerivation rec {
     branchName = tag;
   };
 
-  buildInputs = [ jansson libconfig libnice openssl glib pkg-config gengetopt libsrtp sofia_sip libopus ];
+  buildInputs = with nixpkgs; [ jansson libconfig libnice openssl glib pkg-config gengetopt libsrtp sofia_sip libopus ];
   meta = with stdenv.lib; {
     description = "Janus WebRTC Server";
     homepage    = "https://janus.conf.meetecho.com/";
