@@ -1,4 +1,4 @@
-{ stdenv, fetchgit, jansson, libconfig, libnice, openssl, glib, pkg-config, gengetopt, srtp, sofia_sip, libopus }:
+{ stdenv, fetchgit, jansson, libconfig, libnice, openssl, glib, pkg-config, gengetopt, srtp, sofia_sip, libopus, autoreconfHook }:
 
 let
   tag = "v0.7.3"; # git tag
@@ -14,7 +14,7 @@ stdenv.mkDerivation rec {
     sha256 = "1i25489nlacn95z7zvixc1x4yjw82wfs4zxagmbg3shhgkp865hm";
   };
 
-  buildInputs = [ jansson libconfig libnice openssl glib pkg-config gengetopt srtp sofia_sip libopus ];
+  buildInputs = [ autoreconfHook jansson libconfig libnice openssl glib pkg-config gengetopt srtp sofia_sip libopus ];
   meta = with stdenv.lib; {
     description = "Janus WebRTC Server";
     homepage    = "https://janus.conf.meetecho.com/";
