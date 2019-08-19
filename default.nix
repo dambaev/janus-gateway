@@ -1,12 +1,13 @@
-{ stdenv, fetchgit, pkgs }:
+{ stdenv, fetchgit }:
 
 let
   tag = "v0.7.3"; # git tag
+  pkgs = import <nixpkgs> {};
 in
 stdenv.mkDerivation rec {
   name = "janus-gateway-${tag}";
   version = tag;
-  src = fetchgit {
+  src = pkgs.fetchgit {
     url = "https://github.com/meetecho/janus-gateway";
     branchName = tag;
   };
