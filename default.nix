@@ -6,6 +6,9 @@ in
 stdenv.mkDerivation rec {
   name = "janus-gateway-${tag}";
   version = tag;
+  preConfigure = ''
+    ./autogen.sh
+  '';
   src = fetchgit {
     url = "https://github.com/meetecho/janus-gateway";
     sha256 = "1i25489nlacn95z7zvixc1x4yjw82wfs4zxagmbg3shhgkp865hm";
