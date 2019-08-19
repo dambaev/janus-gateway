@@ -1,4 +1,4 @@
-{ stdenv, fetgit }:
+{ stdenv, fetchgit }:
 
 let
   tag = "v0.7.3"; # git tag
