@@ -14,6 +14,8 @@ stdenv.mkDerivation rec {
   postInstall = ''
     mkdir -p /tmp/janus
     mv $out/etc/janus/janus.transport.pfunix.jcfg.sample $out/etc/janus/janus.transport.pfunix.jcfg
+    sed -i 's/enabled = false/enabled = true/' $out/etc/janus/janus.transport.pfunix.jcfg
+    sed -i 's/admin_enabled = false/admin_enabled = true/' $out/etc/janus/janus.transport.pfunix.jcfg
     sed -i 's/#admin_path = "\/path\/to\/ux-janusadmin"/path = "\/tmp\/janus\/janus-admin.sock"/' $out/etc/janus/janus.transport.pfunix.jcfg
     sed -i 's/#path = "\/path\/to\/ux-janusapi"/path = "\/tmp\/janus\/janus.sock"/' $out/etc/janus/janus.transport.pfunix.jcfg
   '';
