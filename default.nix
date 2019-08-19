@@ -1,4 +1,4 @@
-{ stdenv, fetchFromGitHub, jansson, libconfig, libnice, openssl, glib, pkg-config, gengetopt, srtp, sofia_sip, libopus }:
+{ stdenv, fetchgit, jansson, libconfig, libnice, openssl, glib, pkg-config, gengetopt, srtp, sofia_sip, libopus }:
 
 let
   tag = "v0.7.3"; # git tag
@@ -6,9 +6,8 @@ in
 stdenv.mkDerivation rec {
   name = "janus-gateway-${tag}";
   version = tag;
-  src = fetchFromGitHub {
-    owner = "meetecho";
-    repo = "janus-gateway";
+  src = fetchgit {
+    url = "https://github.com/meetecho/janus-gateway";
     rev = tag;
   };
 
