@@ -8,7 +8,7 @@ stdenv.mkDerivation rec {
   version = tag;
   src = fetchgit {
     url = "https://github.com/meetecho/janus-gateway";
-    sha256 = "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b";
+    sha256 = "1i25489nlacn95z7zvixc1x4yjw82wfs4zxagmbg3shhgkp865hm";
   };
 
   buildInputs = [ jansson libconfig libnice openssl glib pkg-config gengetopt srtp sofia_sip libopus ];
